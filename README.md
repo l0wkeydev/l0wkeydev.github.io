@@ -31,5 +31,4 @@ This repository is the source of my portfolio site, where you'll find my games, 
 
 ------------------------------
 
-<sub>🤖 **HUGE DISCLAIMER:** This portfolio website was built with the help of Claude, but I am actively looking for a REAL website designer to redo my entire site. HOWEVER, VERY IMPORTANTLY, The games, artwork and music it showcases are my own work unless credited otherwise. I DO NOT MAKE AI SLOP GAMES. I genuinely care about the work I create. </sub>
-<sub>If you still see this disclaimer, shoot me an email if you are able to create a site!/sub>
+<sub>🤖 **HUGE DISCLAIMER:** This portfolio website was built with the help of Claude, but I am actively looking for a REAL website designer to redo my entire site. HOWEVER, VERY IMPORTANTLY, The games, artwork and music it showcases are my own work unless credited otherwise. I DO NOT MAKE AI SLOP GAMES. I genuinely care about the work I create. IF YOU STILL SEE THIS DISCLAIMER SHOOT ME AN EMAIL! I WOULD LOVE TO TALK COMMISSIONS! </sub>
