@@ -1,4 +1,4 @@
-<img src="images/avatar.png" alt="Asriel Cooper's avatar" width="140" align="left">
+<img src="avatar.png" alt="Asriel Cooper's avatar" width="140" align="left">
 
 # Asriel Cooper
 **Game Designer, Developer and Artist**
