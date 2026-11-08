@@ -399,6 +399,25 @@
            Add class="pixel" to the <img> for pixel art so it stays crisp.
            Clicking a piece enlarges it. While the gallery is empty, a "coming soon" note shows instead. -->
       <div class="gallery">
+        <figure><img class="pixel" src="images/art/dream-forest.png" alt="Dream Forest" loading="lazy"><figcaption>Dream Forest</figcaption></figure>
+        <figure><img class="pixel" src="images/art/night-street.png" alt="Night Street" loading="lazy"><figcaption>Night Street</figcaption></figure>
+        <figure><img class="pixel" src="images/art/what-is-your-emotion.png" alt="What Is Your Emotion" loading="lazy"><figcaption>What Is Your Emotion</figcaption></figure>
+        <figure><img class="pixel" src="images/art/seedling.png" alt="Seedling" loading="lazy"><figcaption>Seedling</figcaption></figure>
+        <figure><img class="pixel" src="images/art/snowy-manor.png" alt="Snowy Manor" loading="lazy"><figcaption>Snowy Manor</figcaption></figure>
+        <figure><img class="pixel" src="images/art/tree-and-cottages.png" alt="Tree &amp; Cottages" loading="lazy"><figcaption>Tree &amp; Cottages</figcaption></figure>
+        <figure><img class="pixel" src="images/art/diver.png" alt="Diver" loading="lazy"><figcaption>Diver</figcaption></figure>
+        <figure><img class="pixel" src="images/art/red-forest.png" alt="Red Forest" loading="lazy"><figcaption>Red Forest</figcaption></figure>
+        <figure><img class="pixel" src="images/art/witch.png" alt="Witch" loading="lazy"><figcaption>Witch</figcaption></figure>
+        <figure><img class="pixel" src="images/art/forest-cabin.png" alt="Forest Cabin" loading="lazy"><figcaption>Forest Cabin</figcaption></figure>
+        <figure><img class="pixel" src="images/art/mountain-parallax.png" alt="Mountain Parallax" loading="lazy"><figcaption>Mountain Parallax</figcaption></figure>
+        <figure><img class="pixel" src="images/art/starry-rug.png" alt="Starry Rug" loading="lazy"><figcaption>Starry Rug</figcaption></figure>
+        <figure><img class="pixel" src="images/art/grinning-shadow.png" alt="Grinning Shadow" loading="lazy"><figcaption>Grinning Shadow</figcaption></figure>
+        <figure><img class="pixel" src="images/art/reticuled.png" alt="Reticuled" loading="lazy"><figcaption>Reticuled</figcaption></figure>
+        <figure><img src="images/art/frisk-3d.png" alt="Frisk (3D fan model)" loading="lazy"><figcaption>Frisk (3D fan model)</figcaption></figure>
+        <figure><img class="pixel" src="images/art/pip-the-pixel.png" alt="Pip the Pixel" loading="lazy"><figcaption>Pip the Pixel</figcaption></figure>
+        <figure><img src="images/art/flowey-3d.png" alt="Flowey (3D fan model)" loading="lazy"><figcaption>Flowey (3D fan model)</figcaption></figure>
+        <figure><img class="pixel" src="images/art/charizard.png" alt="Charizard Sprite" loading="lazy"><figcaption>Charizard Sprite</figcaption></figure>
+        <figure><img class="pixel" src="images/art/oscillaris.png" alt="OSCILLARIS" loading="lazy"><figcaption>OSCILLARIS</figcaption></figure>
       </div>
       <p class="empty-state" hidden>Artwork coming soon. Check back later!</p>
     </div>
@@ -828,6 +847,7 @@
     function openLightbox(img, caption) {
       lightbox.querySelector('img').src = img.src;
       lightbox.querySelector('img').alt = img.alt;
+      lightbox.querySelector('img').classList.toggle('pixel', img.classList.contains('pixel'));
       lightbox.querySelector('p').textContent = caption || img.alt || '';
       lightbox.hidden = false;
     }

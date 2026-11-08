@@ -712,3 +712,5 @@ a.play { display: block; text-decoration: none; }
   border: 3px solid #fff; outline: 1px dashed var(--green-light); border-radius: 22px;
 }
 .empty-state[hidden], .track[hidden], .album[hidden], .music-sub[hidden] { display: none; }
+/* Small pixel art is scaled up crisply in the lightbox */
+.lightbox img.pixel { min-width: min(70vw, 70vh); object-fit: contain; background: #fff; }
