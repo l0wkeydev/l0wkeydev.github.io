@@ -163,19 +163,57 @@
         <p>Released and in-progress games</p>
       </header>
 
-      <!-- Featured game: swap the placeholder for a YouTube embed, e.g.
-           <div class="video"><iframe src="https://www.youtube.com/embed/VIDEO_ID" title="Trailer" allowfullscreen></iframe></div> -->
-      <article class="card featured">
-        <div class="video ph"><span>▶ Trailer goes here</span></div>
+      <!-- Featured game: sits above the list and isn't sorted. -->
+      <article class="card featured game" data-slug="oscillaris">
+        <img class="thumb pixel" src="images/games/oscillaris/thumb.png" alt="OSCILLARIS title art">
         <div class="card-body">
-          <p class="eyebrow">Featured · In development for Steam</p>
-          <h2>Game Title</h2>
-          <p class="meta">Godot 4 · Lead designer · 2026</p>
-          <p>Two or three sentences on the hook, your role and the design problem you solved. Recruiters skim, so lead with what makes it interesting.</p>
-          <ul class="tags"><li>Systems design</li><li>UI</li><li>Narrative</li></ul>
+          <p class="eyebrow">Featured · Coming soon to Steam</p>
+          <h2>OSCILLARIS</h2>
+          <p class="meta">Godot · Solo developer · Release TBD</p>
+          <p>A text-command RPG set inside an oscilloscope. Type your way through wireframe streets, talk to the programs who live there and use your words to defeat rogue signals.</p>
+          <ul class="tags"><li>Text-command RPG</li><li>Narrative</li><li>Systems design</li></ul>
           <div class="actions">
-            <a class="btn" href="https://store.steampowered.com/" target="_blank" rel="noopener">Wishlist on Steam</a>
-            <a class="btn ghost" href="#">Design breakdown</a>
+            <button class="btn open-game" type="button">View game</button>
+            <!-- When the Steam page is live, swap this span for:
+                 <a class="btn ghost" href="STEAM_LINK" target="_blank" rel="noopener">Wishlist on Steam</a> -->
+            <span class="btn ghost soon">Coming soon to Steam</span>
+          </div>
+        </div>
+
+        <div class="details" hidden>
+          <img class="hero pixel" src="images/games/oscillaris/thumb.png" alt="OSCILLARIS title art">
+
+          <dl class="facts">
+            <div><dt>Release</dt><dd>TBD · Steam</dd></div>
+            <div><dt>Engine</dt><dd>Godot</dd></div>
+            <div><dt>Role</dt><dd>Solo developer</dd></div>
+            <div><dt>Genre</dt><dd>Text-command RPG</dd></div>
+          </dl>
+
+          <p>OSCILLARIS is a text-command RPG that takes place inside an oscilloscope. Type your way through its wireframe streets, talk to the programs who live there and use your words to defeat rogue signals. The game wanted to be found. Now it's up to you.</p>
+
+          <h3>Something was here before you</h3>
+          <p>OSCILLARIS is built on the ruins of its predecessor. Its programs don't remember what came before, but the world does, if you know where to look.</p>
+
+          <h3>Features</h3>
+          <ul class="features">
+            <li>Type commands to walk, examine and interact with the world.</li>
+            <li>Explore the wireframe world and find secrets within its glowing vector lines.</li>
+            <li>Meet programs with their own personalities and stories to unfold.</li>
+            <li>Survive incoming signals with their own agendas using your spelling skills and letter play.</li>
+            <li>Discover fragments of a past that remembers more about you than you do.</li>
+          </ul>
+
+          <h3>Not every signal is friendly</h3>
+          <p>An echo remains from the past, running somewhere in the code. Explore the BOOT sector, but don't go looking for something you won't want to find.</p>
+
+          <h3>Screenshots</h3>
+          <div class="shots">
+            <img src="images/games/oscillaris/screenshot-1.webp" alt="A program introduces itself in a dialogue box" loading="lazy">
+            <img src="images/games/oscillaris/screenshot-2.webp" alt="Meeting a new program in the wireframe streets" loading="lazy">
+            <img src="images/games/oscillaris/screenshot-3.webp" alt="A signal encounter with Q and E prompts" loading="lazy">
+            <img src="images/games/oscillaris/screenshot-4.webp" alt="The PROGRAMMING battle screen" loading="lazy">
+            <img src="images/games/oscillaris/screenshot-5.webp" alt="Overhead view of the wireframe town" loading="lazy">
           </div>
         </div>
       </article>
@@ -474,7 +512,7 @@
 
     /* ---- Games: newest first + individual game pages ---- */
     const gameList = document.getElementById('game-list');
-    [...gameList.querySelectorAll('.game')]
+    [...gameList.querySelectorAll(':scope > .game')]
       .sort((a, b) => (b.dataset.date || '').localeCompare(a.dataset.date || ''))
       .forEach(card => gameList.appendChild(card));
 

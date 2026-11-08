@@ -629,3 +629,8 @@ button.btn { font: inherit; font-weight: 800; font-size: .92rem; cursor: pointer
   .game-head-thumb { width: 64px; height: 52px; }
 }
 .card .actions .btn { padding: 8px 15px; font-size: .88rem; }
+.card.featured .thumb { aspect-ratio: auto; height: 100%; min-height: 300px; }
+.btn.soon { cursor: default; opacity: .85; }
+.btn.soon:hover { transform: none; }
+.game-content .hero { width: 100%; display: block; border-radius: 16px; border: 3px solid #fff; outline: 1px solid var(--tile-border); margin-bottom: 22px; }
+.shots img:last-child:nth-child(odd) { grid-column: 1 / -1; aspect-ratio: 2.4 / 1; }
