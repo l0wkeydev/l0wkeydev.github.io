@@ -1,4 +1,4 @@
-<img src="https://github.com/l0wkeydev.png" alt="Asriel Cooper's avatar" width="140" align="left">
+<h1><img src="https://github.com/l0wkeydev.png" alt="Asriel Cooper's avatar" width="96" align="middle">&nbsp; Asriel Cooper</h1>
 
 # Asriel Cooper
 **Game Designer, Developer and Artist**
