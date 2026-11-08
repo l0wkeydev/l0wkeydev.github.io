@@ -646,3 +646,60 @@ button.btn { font: inherit; font-weight: 800; font-size: .92rem; cursor: pointer
   0%, 100% { box-shadow: 0 0 0 5px rgba(61,187,79,.10), 0 0 20px rgba(61,187,79,.28), 0 6px 16px rgba(0,0,0,.06); }
   50%      { box-shadow: 0 0 0 7px rgba(61,187,79,.16), 0 0 38px rgba(61,187,79,.45), 0 6px 16px rgba(0,0,0,.06); }
 }
+
+/* ---------- Music albums ---------- */
+.music-list { display: grid; gap: 18px; max-width: 900px; margin: 0 auto; }
+.album {
+  background: linear-gradient(#ffffff, #f6faf7);
+  border: 3px solid #fff; outline: 1px solid var(--tile-border);
+  border-radius: 26px;
+  box-shadow: 0 4px 12px rgba(0,0,0,.06);
+  overflow: hidden;
+  transition: outline-color .18s, box-shadow .18s;
+}
+.album[open] { outline: 2px solid var(--green-light); box-shadow: 0 0 0 5px rgba(61,187,79,.10), 0 0 22px rgba(61,187,79,.22); }
+.album-head {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: center; gap: 18px;
+  padding: 14px 24px 14px 14px;
+}
+.album-head::-webkit-details-marker { display: none; }
+.album-head:hover .album-cover { transform: scale(1.04) rotate(-2deg); }
+.album-cover {
+  width: 92px; height: 92px; flex: none; object-fit: cover;
+  border-radius: 16px; border: 3px solid #fff;
+  box-shadow: 0 0 0 1px var(--tile-border), 0 4px 10px rgba(0,0,0,.15);
+  transition: transform .2s;
+}
+.album-info { flex: 1; min-width: 0; }
+.album-info small { display: block; font-size: .75rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-soft); }
+.album-info strong { display: block; font-size: 1.45rem; font-weight: 800; margin: 2px 0; }
+.album-stats { color: var(--green-deep); font-weight: 700; font-size: .9rem; }
+.chev {
+  width: 42px; height: 42px; border-radius: 50%; flex: none; position: relative;
+  background: radial-gradient(circle at 40% 30%, #8fe39a, var(--green) 55%, var(--green-deep));
+  border: 3px solid #fff; box-shadow: 0 0 0 1px #2a9a42, 0 3px 6px rgba(31,143,58,.3);
+  transition: rotate .25s;
+}
+.chev::before {
+  content: ""; position: absolute; left: 50%; top: 45%; width: 10px; height: 10px;
+  border-right: 3px solid #fff; border-bottom: 3px solid #fff;
+  translate: -50% -50%; rotate: 45deg;
+}
+.album[open] .chev { rotate: 180deg; }
+.album .tracks { padding: 4px 16px 18px; gap: 10px; animation: introFade .3s ease both; }
+.album .track { padding: 8px 18px 8px 10px; box-shadow: none; }
+.album .play { width: 46px; height: 46px; }
+.album .play::before { left: 17px; top: 12px; border-left-width: 14px; border-top-width: 9px; border-bottom-width: 9px; }
+.album .track.playing .play::before { left: 13px; top: 12px; width: 5px; height: 16px; box-shadow: 8px 0 0 #fff; }
+.track-num { width: 22px; text-align: right; font-weight: 800; color: var(--ink-soft); font-size: .9rem; flex: none; }
+.music-sub { margin: 10px 0 0 6px; color: var(--green-deep); font-size: 1.15rem; }
+@media (max-width: 480px) {
+  .album-cover { width: 64px; height: 64px; }
+  .album-info strong { font-size: 1.15rem; }
+  .track-num { display: none; }
+}
+
+/* YouTube tracks: play opens the video in a new tab */
+a.play { display: block; text-decoration: none; }
+.track.yt small { color: var(--green-deep); font-weight: 700; }

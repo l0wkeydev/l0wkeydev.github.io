@@ -413,36 +413,179 @@
         <h1>Music</h1>
         <p>Soundtracks and tracks I've composed</p>
       </header>
-      <!-- Put MP3s in a "music" folder and set each src below.
-           Or swap a track for a SoundCloud/Bandcamp embed iframe. -->
-      <div class="tracks">
+      <!-- ===== HOW TO ADD MUSIC =====
+           ALBUM: copy a whole <details class="album"> … </details> block. Change the cover, title and tracks.
+           Album MP3s go in music/album-name/.
+           SINGLE: copy one <div class="track"> … </div> block into the Singles list. MP3s go in music/singles/.
+           Track lengths and album running times fill themselves in.
+           Tracks in an album play one after another automatically. -->
+
+      <div class="music-list">
+
+        <!-- YouTube album: pressing play opens the video in a new tab.
+             To add a track, copy a <div class="track yt"> block and change the title and both video IDs
+             (the part after "watch?v=" in the YouTube link). -->
+        <details class="album">
+          <summary class="album-head">
+            <img class="album-cover pixel" src="images/games/oscillaris/thumb.png" alt="">
+            <div class="album-info">
+              <small>Album · Game soundtrack</small>
+              <strong>OSCILLARIS</strong>
+              <span class="album-stats"><span class="album-count"></span> · <span class="album-time">–</span></span>
+            </div>
+            <span class="chev" aria-hidden="true"></span>
+          </summary>
+          <div class="tracks">
+          <div class="track yt" data-yt="CVrtDxyUUik">
+            <span class="track-num">1</span><a class="play" href="https://www.youtube.com/watch?v=CVrtDxyUUik" target="_blank" rel="noopener" aria-label="Play Another Memory 1 on YouTube (opens a new tab)"></a>
+            <div class="track-info">
+              <strong>Another Memory 1</strong><small>OSCILLARIS · plays on YouTube ↗</small>
+            </div>
+          </div>
+          <div class="track yt" data-yt="OE1bR7y7YYI">
+            <span class="track-num">2</span><a class="play" href="https://www.youtube.com/watch?v=OE1bR7y7YYI" target="_blank" rel="noopener" aria-label="Play Another Memory 2 on YouTube (opens a new tab)"></a>
+            <div class="track-info">
+              <strong>Another Memory 2</strong><small>OSCILLARIS · plays on YouTube ↗</small>
+            </div>
+          </div>
+          </div>
+        </details>
+
+        <details class="album">
+          <summary class="album-head">
+            <img class="album-cover pixel" src="images/games/the-rng-machine/thumb.png" alt="">
+            <div class="album-info">
+              <small>Album · Game soundtrack</small>
+              <strong>The RNG Machine</strong>
+              <span class="album-stats"><span class="album-count"></span> · <span class="album-time">–</span></span>
+            </div>
+            <span class="chev" aria-hidden="true"></span>
+          </summary>
+          <div class="tracks">
+          <div class="track">
+            <span class="track-num">1</span><button class="play" aria-label="Play Main Menu"></button>
+            <div class="track-info">
+              <strong>Main Menu</strong><small>The RNG Machine</small>
+              <div class="bar"><span></span></div>
+            </div>
+            <span class="dur">0:00</span>
+            <audio preload="metadata" src="music/the-rng-machine/main-menu.mp3"></audio>
+          </div>
+          <div class="track">
+            <span class="track-num">2</span><button class="play" aria-label="Play Aqua Theme"></button>
+            <div class="track-info">
+              <strong>Aqua Theme</strong><small>The RNG Machine</small>
+              <div class="bar"><span></span></div>
+            </div>
+            <span class="dur">0:00</span>
+            <audio preload="metadata" src="music/the-rng-machine/aqua-theme.mp3"></audio>
+          </div>
+          <div class="track">
+            <span class="track-num">3</span><button class="play" aria-label="Play Beach Theme"></button>
+            <div class="track-info">
+              <strong>Beach Theme</strong><small>The RNG Machine</small>
+              <div class="bar"><span></span></div>
+            </div>
+            <span class="dur">0:00</span>
+            <audio preload="metadata" src="music/the-rng-machine/beach-theme.mp3"></audio>
+          </div>
+          <div class="track">
+            <span class="track-num">4</span><button class="play" aria-label="Play Ducks March On"></button>
+            <div class="track-info">
+              <strong>Ducks March On</strong><small>The RNG Machine</small>
+              <div class="bar"><span></span></div>
+            </div>
+            <span class="dur">0:00</span>
+            <audio preload="metadata" src="music/the-rng-machine/ducks-march-on.mp3"></audio>
+          </div>
+          <div class="track">
+            <span class="track-num">5</span><button class="play" aria-label="Play Forest Theme"></button>
+            <div class="track-info">
+              <strong>Forest Theme</strong><small>The RNG Machine</small>
+              <div class="bar"><span></span></div>
+            </div>
+            <span class="dur">0:00</span>
+            <audio preload="metadata" src="music/the-rng-machine/forest-theme.mp3"></audio>
+          </div>
+          <div class="track">
+            <span class="track-num">6</span><button class="play" aria-label="Play Magma Theme"></button>
+            <div class="track-info">
+              <strong>Magma Theme</strong><small>The RNG Machine</small>
+              <div class="bar"><span></span></div>
+            </div>
+            <span class="dur">0:00</span>
+            <audio preload="metadata" src="music/the-rng-machine/magma-theme.mp3"></audio>
+          </div>
+          <div class="track">
+            <span class="track-num">7</span><button class="play" aria-label="Play Shwamp Theme"></button>
+            <div class="track-info">
+              <strong>Shwamp Theme</strong><small>The RNG Machine</small>
+              <div class="bar"><span></span></div>
+            </div>
+            <span class="dur">0:00</span>
+            <audio preload="metadata" src="music/the-rng-machine/shwamp-theme.mp3"></audio>
+          </div>
+          <div class="track">
+            <span class="track-num">8</span><button class="play" aria-label="Play Skill Tree"></button>
+            <div class="track-info">
+              <strong>Skill Tree</strong><small>The RNG Machine</small>
+              <div class="bar"><span></span></div>
+            </div>
+            <span class="dur">0:00</span>
+            <audio preload="metadata" src="music/the-rng-machine/skill-tree.mp3"></audio>
+          </div>
+          <div class="track">
+            <span class="track-num">9</span><button class="play" aria-label="Play Underground Theme"></button>
+            <div class="track-info">
+              <strong>Underground Theme</strong><small>The RNG Machine</small>
+              <div class="bar"><span></span></div>
+            </div>
+            <span class="dur">0:00</span>
+            <audio preload="metadata" src="music/the-rng-machine/underground-theme.mp3"></audio>
+          </div>
+          <div class="track">
+            <span class="track-num">10</span><button class="play" aria-label="Play Credits Song"></button>
+            <div class="track-info">
+              <strong>Credits Song</strong><small>The RNG Machine</small>
+              <div class="bar"><span></span></div>
+            </div>
+            <span class="dur">0:00</span>
+            <audio preload="metadata" src="music/the-rng-machine/credits-song.mp3"></audio>
+          </div>
+          </div>
+        </details>
+
+        <h3 class="music-sub">Singles</h3>
+        <div class="tracks">
         <div class="track">
-          <button class="play" aria-label="Play"></button>
+          <button class="play" aria-label="Play Neon Goulies At Your Door"></button>
           <div class="track-info">
-            <strong>Track Name</strong><small>From: Game Title</small>
+            <strong>Neon Goulies At Your Door</strong><small>Single</small>
             <div class="bar"><span></span></div>
           </div>
           <span class="dur">0:00</span>
-          <audio preload="metadata" src="music/track1.mp3"></audio>
+          <audio preload="metadata" src="music/singles/neon-goulies-at-your-door.mp3"></audio>
         </div>
         <div class="track">
-          <button class="play" aria-label="Play"></button>
+          <button class="play" aria-label="Play The Hero We Have Been Waiting For"></button>
           <div class="track-info">
-            <strong>Track Name</strong><small>From: Game Title</small>
+            <strong>The Hero We Have Been Waiting For</strong><small>Single</small>
             <div class="bar"><span></span></div>
           </div>
           <span class="dur">0:00</span>
-          <audio preload="metadata" src="music/track2.mp3"></audio>
+          <audio preload="metadata" src="music/singles/the-hero-we-have-been-waiting-for.mp3"></audio>
         </div>
         <div class="track">
-          <button class="play" aria-label="Play"></button>
+          <button class="play" aria-label="Play Curiously Waiting"></button>
           <div class="track-info">
-            <strong>Track Name</strong><small>Original piece</small>
+            <strong>Curiously Waiting</strong><small>Single</small>
             <div class="bar"><span></span></div>
           </div>
           <span class="dur">0:00</span>
-          <audio preload="metadata" src="music/track3.mp3"></audio>
+          <audio preload="metadata" src="music/singles/curiously-waiting.mp3"></audio>
         </div>
+        </div>
+
       </div>
     </div>
     <div class="channel-dock"><a class="menu-btn" href="#">Menu</a></div>
@@ -687,26 +830,51 @@
     if (firstPost) document.getElementById('ticker-text').textContent = 'NEW: ' + firstPost.textContent;
     lightbox.addEventListener('click', () => lightbox.hidden = true);
 
+    /* ---- Album track counts & running times ---- */
+    document.querySelectorAll('.album').forEach(album => {
+      const audios = [...album.querySelectorAll('audio')];
+      const count = album.querySelectorAll('.track').length;
+      album.querySelector('.album-count').textContent = count + (count === 1 ? ' track' : ' tracks');
+      if (!audios.length) { album.querySelector('.album-time').textContent = 'on YouTube'; return; }
+      const update = () => {
+        if (!audios.every(a => isFinite(a.duration))) return;
+        const total = audios.reduce((t, a) => t + a.duration, 0);
+        album.querySelector('.album-time').textContent = Math.round(total / 60) + ' min';
+      };
+      audios.forEach(a => a.addEventListener('loadedmetadata', update));
+      update();
+    });
+
     /* ---- Music player ---- */
     const fmt = s => isFinite(s) ? Math.floor(s / 60) + ':' + String(Math.floor(s % 60)).padStart(2, '0') : '0:00';
-    document.querySelectorAll('.track').forEach(track => {
+    document.querySelectorAll('.track:not(.yt)').forEach(track => {
       const audio = track.querySelector('audio');
       const btn = track.querySelector('.play');
       const fill = track.querySelector('.bar span');
       const dur = track.querySelector('.dur');
 
       audio.addEventListener('loadedmetadata', () => dur.textContent = fmt(audio.duration));
+      if (audio.readyState >= 1) dur.textContent = fmt(audio.duration); // metadata already loaded
       audio.addEventListener('timeupdate', () => {
         fill.style.width = (audio.currentTime / audio.duration * 100 || 0) + '%';
         dur.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
       });
       audio.addEventListener('play', () => track.classList.add('playing'));
       audio.addEventListener('pause', () => track.classList.remove('playing'));
-      audio.addEventListener('ended', () => { track.classList.remove('playing'); fill.style.width = '0%'; });
+      audio.addEventListener('ended', () => {
+        track.classList.remove('playing'); fill.style.width = '0%';
+        // Albums play straight through to the next track
+        if (track.closest('.album')) {
+          const next = track.nextElementSibling;
+          if (next && next.classList.contains('track')) next.querySelector('audio').play();
+        }
+      });
       audio.addEventListener('error', () => { track.classList.add('missing'); dur.textContent = 'No file'; });
 
-      btn.addEventListener('click', () => {
+      audio.addEventListener('play', () => {
         document.querySelectorAll('.track audio').forEach(a => { if (a !== audio) a.pause(); });
+      });
+      btn.addEventListener('click', () => {
         audio.paused ? audio.play() : audio.pause();
       });
       track.querySelector('.bar').addEventListener('click', e => {
