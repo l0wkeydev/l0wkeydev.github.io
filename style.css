@@ -714,3 +714,72 @@ a.play { display: block; text-decoration: none; }
 .empty-state[hidden], .track[hidden], .album[hidden], .music-sub[hidden] { display: none; }
 /* Small pixel art is scaled up crisply in the lightbox */
 .lightbox img.pixel { min-width: min(70vw, 70vh); object-fit: contain; background: #fff; }
+
+/* ---------- News icon: centred between the ticker and the label ---------- */
+.t-news .tile-art { top: max(13%, 20px); bottom: 27%; padding-bottom: 0; }
+
+/* ---------- Grid sits centred now the name tag is gone ---------- */
+.menu { padding-top: 40px; }
+@media (max-width: 860px) { .menu { padding-top: 40px; } }
+
+/* ---------- Flowing bottom wave ---------- */
+.dock-wave {
+  position: absolute; inset: 0;
+  background-repeat: repeat-x;
+  background-position: 0 0;
+  filter: none;
+}
+.dock-wave.back {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1000' height='180' viewBox='0 0 1000 180'%3E%3Cpath d='M0 30 C167 2 333 2 500 30 C667 58 833 58 1000 30 L1000 180 L0 180 Z' fill='%23a6e3ad' fill-opacity='.55'/%3E%3C/svg%3E");
+  background-size: 1000px 180px;
+  animation: introFade .8s ease 100ms both, flowBack 34s linear infinite;
+}
+.dock-wave.front {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='180' viewBox='0 0 800 180'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23ffffff'/%3E%3Cstop offset='1' stop-color='%23dfe5e2'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M0 42 C133 14 267 14 400 42 C533 70 667 70 800 42 L800 180 L0 180 Z' fill='url(%23g)'/%3E%3Cpath d='M0 42 C133 14 267 14 400 42 C533 70 667 70 800 42' fill='none' stroke='%233dbb4f' stroke-width='3'/%3E%3C/svg%3E");
+  background-size: 800px 180px;
+  filter: drop-shadow(0 -3px 6px rgba(0,0,0,.05));
+  animation: introFade .8s ease 100ms both, flowFront 22s linear infinite;
+}
+@keyframes flowFront { to { background-position-x: -800px; } }
+@keyframes flowBack  { to { background-position-x: -1000px; } }
+
+/* Clock sits inside the bar now */
+.clock { top: 62px; }
+#hm { font-size: 3rem; }
+.date { margin-top: 6px; font-size: 1.6rem; }
+@media (max-width: 860px) {
+  .clock { top: 52px; }
+  #hm { font-size: 2.2rem; }
+  .date { margin-top: 2px; font-size: 1.15rem; }
+}
+@media (max-width: 480px) { .clock { top: 54px; } #hm { font-size: 1.8rem; } }
+
+/* ---------- Generated album covers (for albums without artwork) ---------- */
+.album-cover.generated {
+  position: relative; overflow: hidden;
+  display: grid; place-items: center;
+  background:
+    radial-gradient(circle at 30% 25%, hsl(var(--hue) 80% 82%) 0 18%, transparent 19%),
+    radial-gradient(circle at 78% 80%, hsl(var(--hue) 70% 70% / .6) 0 26%, transparent 27%),
+    linear-gradient(150deg, hsl(var(--hue) 70% 62%), hsl(var(--hue) 60% 38%));
+}
+.album-cover.generated::before {
+  content: attr(data-mono);
+  font-weight: 800; font-size: 1.9rem; letter-spacing: .02em; color: #fff;
+  text-shadow: 0 2px 4px rgba(0,0,0,.25);
+}
+.album-cover.generated::after {
+  content: ""; position: absolute; inset: 0 0 52% 0;
+  background: linear-gradient(rgba(255,255,255,.45), rgba(255,255,255,.08));
+}
+.track.ext small { color: var(--green-deep); font-weight: 700; }
+.album-link {
+  justify-self: end; margin: 4px 6px 0;
+  font-size: .85rem; font-weight: 800; color: var(--green-deep); text-decoration: none;
+  padding: 6px 14px; border-radius: 999px; background: var(--mint); border: 1px solid #c8ecce;
+}
+.album-link:hover { background: #d4f3d8; }
+@media (max-width: 480px) { .album-cover.generated::before { font-size: 1.3rem; } }
+/* Thumbnails that shouldn't be cropped (e.g. title art with text) */
+.thumb.fit { object-fit: contain; background: #000; }
+.game-content .hero.small { max-width: 420px; margin-left: auto; margin-right: auto; }
