@@ -703,3 +703,12 @@ button.btn { font: inherit; font-weight: 800; font-size: .92rem; cursor: pointer
 /* YouTube tracks: play opens the video in a new tab */
 a.play { display: block; text-decoration: none; }
 .track.yt small { color: var(--green-deep); font-weight: 700; }
+
+/* Empty sections */
+.empty-state {
+  max-width: 520px; margin: 30px auto; padding: 26px 30px; text-align: center;
+  font-weight: 700; color: var(--green-deep);
+  background: linear-gradient(#ffffff, #f1faf2);
+  border: 3px solid #fff; outline: 1px dashed var(--green-light); border-radius: 22px;
+}
+.empty-state[hidden], .track[hidden], .album[hidden], .music-sub[hidden] { display: none; }
