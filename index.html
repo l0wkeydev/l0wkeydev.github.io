@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Asriel — Game Designer Portfolio</title>
+  <meta name="description" content="Portfolio of Asriel: game designer, developer and artist. Games, prototypes, artwork and music.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Floating Frutiger Aero bubbles -->
+  <div class="bg" aria-hidden="true">
+    <span class="bubble b1"></span><span class="bubble b2"></span><span class="bubble b3"></span>
+    <span class="bubble b4"></span><span class="bubble b5"></span><span class="bubble b6"></span>
+    <span class="bubble b7"></span><span class="bubble b8"></span>
+  </div>
+
+  <!-- ============ MENU ============ -->
+  <header class="topbar">
+    <div class="nameplate">
+      <span class="leaf" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M5 19c0-8 5-13 15-14-1 10-6 15-14 15" fill="currentColor"/><path d="M5 19c3-4 6-7 10-9" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg>
+      </span>
+      <div>
+        <strong>Asriel</strong>
+        <small>Game Designer · Developer · Artist</small>
+      </div>
+    </div>
+    <p class="hint">Select a channel</p>
+  </header>
+
+  <main class="menu" id="menu">
+    <nav class="grid" aria-label="Portfolio channels">
+
+      <a class="tile t-games" href="#games">
+        <div class="tile-art">
+          <svg class="icon" viewBox="0 0 64 40" aria-hidden="true">
+            <path d="M14 4h36c7 0 12 6 13 14l1 10c1 7-6 11-11 6l-6-6H17l-6 6C6 39-1 35 0 28l1-10C2 10 7 4 14 4z" fill="#fff"/>
+            <path d="M15 14v10M10 19h10" stroke="#2aa046" stroke-width="3.4" stroke-linecap="round"/>
+            <circle cx="45" cy="15" r="2.8" fill="#2aa046"/><circle cx="51" cy="20" r="2.8" fill="#2aa046"/>
+            <circle cx="39" cy="20" r="2.8" fill="#2aa046"/><circle cx="45" cy="25" r="2.8" fill="#2aa046"/>
+          </svg>
+        </div>
+        <span class="tile-label">Games</span>
+      </a>
+
+      <a class="tile t-proto" href="#prototypes">
+        <div class="tile-art">
+          <svg class="icon gear" viewBox="0 0 48 48" aria-hidden="true">
+            <path fill="#2aa046" d="M27 3l1 6a15 15 0 0 1 4 2l6-3 3 3-3 6a15 15 0 0 1 2 4l6 1v4l-6 1a15 15 0 0 1-2 4l3 6-3 3-6-3a15 15 0 0 1-4 2l-1 6h-4l-1-6a15 15 0 0 1-4-2l-6 3-3-3 3-6a15 15 0 0 1-2-4l-6-1v-4l6-1a15 15 0 0 1 2-4l-3-6 3-3 6 3a15 15 0 0 1 4-2l1-6z"/>
+            <circle cx="25" cy="24" r="6" fill="#fff"/>
+          </svg>
+          <svg class="icon gear small" viewBox="0 0 48 48" aria-hidden="true">
+            <path fill="#7fd08a" d="M27 3l1 6a15 15 0 0 1 4 2l6-3 3 3-3 6a15 15 0 0 1 2 4l6 1v4l-6 1a15 15 0 0 1-2 4l3 6-3 3-6-3a15 15 0 0 1-4 2l-1 6h-4l-1-6a15 15 0 0 1-4-2l-6 3-3-3 3-6a15 15 0 0 1-2-4l-6-1v-4l6-1a15 15 0 0 1 2-4l-3-6 3-3 6 3a15 15 0 0 1 4-2l1-6z"/>
+            <circle cx="25" cy="24" r="6" fill="#fff"/>
+          </svg>
+        </div>
+        <span class="tile-label">Prototypes</span>
+      </a>
+
+      <a class="tile t-art" href="#artwork">
+        <div class="tile-art">
+          <svg class="icon" viewBox="0 0 64 56" aria-hidden="true">
+            <path d="M32 4C15 4 3 15 3 28c0 11 9 18 17 16 5-1 4-7 9-8 6-1 8 6 14 6 11 0 18-8 18-16C61 13 48 4 32 4z" fill="#fff" stroke="#cfe3d2" stroke-width="1.5"/>
+            <circle cx="18" cy="24" r="5" fill="#ff8a7a"/><circle cx="29" cy="14" r="5" fill="#ffd15c"/>
+            <circle cx="43" cy="15" r="5" fill="#3dbb4f"/><circle cx="51" cy="27" r="5" fill="#5cb8ff"/>
+          </svg>
+        </div>
+        <span class="tile-label">Artwork</span>
+      </a>
+
+      <a class="tile t-music" href="#music">
+        <div class="tile-art">
+          <svg class="icon note n1" viewBox="0 0 32 40" aria-hidden="true"><path d="M12 30V6l18-4v24" stroke="#2aa046" stroke-width="3.5" fill="none" stroke-linejoin="round"/><ellipse cx="7.5" cy="31" rx="6.5" ry="5" fill="#2aa046"/><ellipse cx="25.5" cy="27" rx="6.5" ry="5" fill="#2aa046"/></svg>
+          <svg class="icon note n2" viewBox="0 0 20 40" aria-hidden="true"><path d="M13 32V4c3 4 7 6 6 12" stroke="#5ec46c" stroke-width="3.5" fill="none" stroke-linecap="round"/><ellipse cx="8" cy="32" rx="7" ry="5.5" fill="#5ec46c"/></svg>
+        </div>
+        <span class="tile-label">Music</span>
+      </a>
+
+      <a class="tile t-me" href="#me">
+        <div class="tile-art">
+          <svg class="icon" viewBox="0 0 48 56" aria-hidden="true">
+            <circle cx="24" cy="15" r="11" fill="#2aa046"/>
+            <path d="M3 54c0-14 9-22 21-22s21 8 21 22z" fill="#2aa046"/>
+            <circle cx="20" cy="14" r="1.8" fill="#fff"/><circle cx="28" cy="14" r="1.8" fill="#fff"/>
+            <path d="M19.5 19c3 2.5 6 2.5 9 0" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span class="tile-label">Me</span>
+      </a>
+
+      <!-- Empty channel slots (purely decorative) -->
+      <div class="tile empty" aria-hidden="true"></div>
+      <div class="tile empty" aria-hidden="true"></div>
+      <div class="tile empty" aria-hidden="true"></div>
+    </nav>
+  </main>
+
+  <footer class="dock">
+    <svg class="dock-wave" viewBox="0 0 1200 180" preserveAspectRatio="none" aria-hidden="true">
+      <defs>
+        <linearGradient id="dockFill" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#ffffff"/>
+          <stop offset="1" stop-color="#dfe5e2"/>
+        </linearGradient>
+      </defs>
+      <path d="M0 34 C 260 34, 330 96, 600 96 C 870 96, 940 34, 1200 34 L1200 180 L0 180 Z" fill="url(#dockFill)"/>
+      <path d="M0 34 C 260 34, 330 96, 600 96 C 870 96, 940 34, 1200 34" fill="none" stroke="#3dbb4f" stroke-width="3" vector-effect="non-scaling-stroke"/>
+    </svg>
+
+    <!-- Put your CV in the repository as cv.pdf -->
+    <a class="round-btn left" href="cv.pdf" target="_blank" rel="noopener" aria-label="Download CV">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h8l5 5v15H6z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M14 2v5h5M9 12h7M9 16h7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      <span>CV</span>
+    </a>
+
+    <div class="clock" aria-live="off">
+      <div class="time"><span id="hm">12:00</span><span id="ampm">PM</span></div>
+      <div class="date" id="date">Sun 8/11</div>
+    </div>
+
+    <!-- Change this to your real email address -->
+    <a class="round-btn right" href="mailto:you@example.com" aria-label="Email me">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3.5 6l8.5 7 8.5-7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+      <span>Mail</span>
+    </a>
+  </footer>
+
+
+  <!-- ============ CHANNELS ============ -->
+
+  <!-- GAMES -->
+  <section class="channel" id="games" aria-label="Games" hidden>
+    <div class="channel-inner">
+      <header class="banner">
+        <h1>Games</h1>
+        <p>Released and in-progress games</p>
+      </header>
+
+      <!-- Featured game: swap the placeholder for a YouTube embed, e.g.
+           <div class="video"><iframe src="https://www.youtube.com/embed/VIDEO_ID" title="Trailer" allowfullscreen></iframe></div> -->
+      <article class="card featured">
+        <div class="video ph"><span>▶ Trailer goes here</span></div>
+        <div class="card-body">
+          <p class="eyebrow">Featured · In development for Steam</p>
+          <h2>Game Title</h2>
+          <p class="meta">Godot 4 · Lead designer · 2026</p>
+          <p>Two or three sentences on the hook, your role and the design problem you solved. Recruiters skim, so lead with what makes it interesting.</p>
+          <ul class="tags"><li>Systems design</li><li>UI</li><li>Narrative</li></ul>
+          <div class="actions">
+            <a class="btn" href="https://store.steampowered.com/" target="_blank" rel="noopener">Wishlist on Steam</a>
+            <a class="btn ghost" href="#">Design breakdown</a>
+          </div>
+        </div>
+      </article>
+
+      <div class="cards">
+        <!-- Copy this <article> for each game.
+             Replace the placeholder div with: <img class="thumb" src="images/game-name.png" alt="Game Name screenshot"> -->
+        <article class="card">
+          <div class="thumb ph"><span>Add screenshot</span></div>
+          <div class="card-body">
+            <h2>Game Title</h2>
+            <p class="meta">Godot · Solo · Game jam</p>
+            <p>One line describing the game and what you did.</p>
+            <div class="actions"><a class="btn" href="https://itch.io" target="_blank" rel="noopener">Play on itch.io</a></div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="thumb ph"><span>Add screenshot</span></div>
+          <div class="card-body">
+            <h2>Game Title</h2>
+            <p class="meta">Roblox · Designer & scripter</p>
+            <p>One line describing the game and what you did.</p>
+            <div class="actions"><a class="btn" href="https://www.roblox.com" target="_blank" rel="noopener">Play on Roblox</a></div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="thumb ph"><span>Add screenshot</span></div>
+          <div class="card-body">
+            <h2>Game Title</h2>
+            <p class="meta">Godot · Team of 6</p>
+            <p>One line describing the game and what you did.</p>
+            <div class="actions"><a class="btn" href="https://itch.io" target="_blank" rel="noopener">Play on itch.io</a></div>
+          </div>
+        </article>
+      </div>
+    </div>
+    <div class="channel-dock"><a class="menu-btn" href="#">Menu</a></div>
+  </section>
+
+  <!-- PROTOTYPES -->
+  <section class="channel" id="prototypes" aria-label="Prototypes" hidden>
+    <div class="channel-inner">
+      <header class="banner">
+        <h1>Prototypes</h1>
+        <p>Quick experiments, mechanics tests and jam ideas</p>
+      </header>
+      <div class="cards">
+        <!-- GIFs work great here: <img class="thumb" src="images/proto.gif" alt="..."> -->
+        <article class="card">
+          <div class="thumb ph"><span>Add GIF</span></div>
+          <div class="card-body">
+            <h2>Prototype Name</h2>
+            <p class="meta">Godot 4 · 2 days</p>
+            <p><strong>Question:</strong> what were you testing? <strong>Result:</strong> what did you learn?</p>
+          </div>
+        </article>
+        <article class="card">
+          <div class="thumb ph"><span>Add GIF</span></div>
+          <div class="card-body">
+            <h2>Prototype Name</h2>
+            <p class="meta">Godot 4 · 1 week</p>
+            <p><strong>Question:</strong> what were you testing? <strong>Result:</strong> what did you learn?</p>
+          </div>
+        </article>
+        <article class="card">
+          <div class="thumb ph"><span>Add GIF</span></div>
+          <div class="card-body">
+            <h2>Prototype Name</h2>
+            <p class="meta">Roblox · Weekend</p>
+            <p><strong>Question:</strong> what were you testing? <strong>Result:</strong> what did you learn?</p>
+          </div>
+        </article>
+      </div>
+    </div>
+    <div class="channel-dock"><a class="menu-btn" href="#">Menu</a></div>
+  </section>
+
+  <!-- ARTWORK -->
+  <section class="channel" id="artwork" aria-label="Artwork" hidden>
+    <div class="channel-inner">
+      <header class="banner">
+        <h1>Artwork</h1>
+        <p>Pixel art, concepts and UI design. Click to enlarge.</p>
+      </header>
+      <!-- Replace each placeholder with: <figure><img src="images/art1.png" alt="Description"><figcaption>Title</figcaption></figure> -->
+      <div class="gallery">
+        <figure><div class="ph tall"><span>Artwork</span></div><figcaption>Title</figcaption></figure>
+        <figure><div class="ph"><span>Artwork</span></div><figcaption>Title</figcaption></figure>
+        <figure><div class="ph"><span>Artwork</span></div><figcaption>Title</figcaption></figure>
+        <figure><div class="ph wide"><span>Artwork</span></div><figcaption>Title</figcaption></figure>
+        <figure><div class="ph tall"><span>Artwork</span></div><figcaption>Title</figcaption></figure>
+        <figure><div class="ph"><span>Artwork</span></div><figcaption>Title</figcaption></figure>
+      </div>
+    </div>
+    <div class="channel-dock"><a class="menu-btn" href="#">Menu</a></div>
+  </section>
+
+  <!-- MUSIC -->
+  <section class="channel" id="music" aria-label="Music" hidden>
+    <div class="channel-inner">
+      <header class="banner">
+        <h1>Music</h1>
+        <p>Soundtracks and tracks I've composed</p>
+      </header>
+      <!-- Put MP3s in a "music" folder and set each src below.
+           Or swap a track for a SoundCloud/Bandcamp embed iframe. -->
+      <div class="tracks">
+        <div class="track">
+          <button class="play" aria-label="Play"></button>
+          <div class="track-info">
+            <strong>Track Name</strong><small>From: Game Title</small>
+            <div class="bar"><span></span></div>
+          </div>
+          <span class="dur">0:00</span>
+          <audio preload="metadata" src="music/track1.mp3"></audio>
+        </div>
+        <div class="track">
+          <button class="play" aria-label="Play"></button>
+          <div class="track-info">
+            <strong>Track Name</strong><small>From: Game Title</small>
+            <div class="bar"><span></span></div>
+          </div>
+          <span class="dur">0:00</span>
+          <audio preload="metadata" src="music/track2.mp3"></audio>
+        </div>
+        <div class="track">
+          <button class="play" aria-label="Play"></button>
+          <div class="track-info">
+            <strong>Track Name</strong><small>Original piece</small>
+            <div class="bar"><span></span></div>
+          </div>
+          <span class="dur">0:00</span>
+          <audio preload="metadata" src="music/track3.mp3"></audio>
+        </div>
+      </div>
+    </div>
+    <div class="channel-dock"><a class="menu-btn" href="#">Menu</a></div>
+  </section>
+
+  <!-- ME -->
+  <section class="channel" id="me" aria-label="About me" hidden>
+    <div class="channel-inner">
+      <header class="banner">
+        <h1>Me</h1>
+        <p>About me</p>
+      </header>
+      <div class="about">
+        <!-- Replace with: <img class="avatar" src="images/me.png" alt="Asriel"> -->
+        <div class="avatar ph"><span>Photo / avatar</span></div>
+        <div class="about-text">
+          <h2>Hi, I'm Asriel!</h2>
+          <p>I'm a game developer, designer and artist. I work across the whole process: designing systems, building UI, writing stories and prototyping ideas fast to find what's fun. I've released several games on itch.io, I have a Steam game in progress, and I'm leading a project with Snotdribble Studios.</p>
+          <p>I'm looking for remote roles in the games industry.</p>
+
+          <h3>What I do</h3>
+          <ul class="tags big"><li>Systems design</li><li>UI &amp; visual design</li><li>Narrative &amp; storytelling</li><li>Rapid prototyping</li><li>Pixel art</li><li>Music</li></ul>
+
+          <h3>Tools</h3>
+          <ul class="tags big"><li>Godot / GDScript</li><li>Roblox Studio / Luau</li><li>Unity / C#</li></ul>
+
+          <h3>Experience</h3>
+          <ul class="timeline">
+            <li><strong>Project Lead</strong> · Snotdribble Studios</li>
+            <li><strong>Programming Mentor</strong> · Teaching kids to code</li>
+            <li><strong>Indie Developer</strong> · Releases on itch.io</li>
+          </ul>
+
+          <div class="actions">
+            <a class="btn" href="mailto:you@example.com">Email me</a>
+            <a class="btn ghost" href="https://itch.io" target="_blank" rel="noopener">itch.io</a>
+            <a class="btn ghost" href="https://github.com" target="_blank" rel="noopener">GitHub</a>
+            <a class="btn ghost" href="cv.pdf" target="_blank" rel="noopener">CV</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="channel-dock"><a class="menu-btn" href="#">Menu</a></div>
+  </section>
+
+  <!-- Artwork lightbox -->
+  <div class="lightbox" id="lightbox" hidden>
+    <img alt="">
+    <p></p>
+  </div>
+
+  <script>
+    /* ---- Clock ---- */
+    const days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+    function tick() {
+      const d = new Date();
+      let h = d.getHours();
+      const ampm = h >= 12 ? 'PM' : 'AM';
+      h = h % 12 || 12;
+      document.getElementById('hm').textContent = h + ':' + String(d.getMinutes()).padStart(2, '0');
+      document.getElementById('ampm').textContent = ampm;
+      document.getElementById('date').textContent = days[d.getDay()] + ' ' + d.getDate() + '/' + (d.getMonth() + 1);
+    }
+    tick(); setInterval(tick, 1000);
+
+    /* ---- Channel routing (#games, #music, …) ---- */
+    let current = null;
+    let origin = null;
+
+    document.querySelectorAll('.tile[href]').forEach(t => {
+      t.addEventListener('click', () => {
+        const r = t.getBoundingClientRect();
+        origin = (r.left + r.width / 2) + 'px ' + (r.top + r.height / 2) + 'px';
+      });
+    });
+
+    function route() {
+      const id = location.hash.slice(1);
+      const next = id ? document.getElementById(id) : null;
+      const valid = next && next.classList.contains('channel');
+
+      if (current && current !== next) {
+        const old = current;
+        old.classList.remove('open');
+        old.classList.add('closing');
+        old.querySelectorAll('audio').forEach(a => a.pause());
+        setTimeout(() => { old.hidden = true; old.classList.remove('closing'); }, 320);
+        current = null;
+      }
+      if (valid && next !== current) {
+        next.style.transformOrigin = origin || '50% 50%';
+        next.hidden = false;
+        next.scrollTop = 0;
+        requestAnimationFrame(() => next.classList.add('open'));
+        current = next;
+        document.title = next.getAttribute('aria-label') + ' — Asriel';
+      } else if (!valid) {
+        document.title = 'Asriel — Game Designer Portfolio';
+      }
+      document.body.classList.toggle('in-channel', !!valid);
+    }
+    window.addEventListener('hashchange', route);
+    route();
+
+    document.addEventListener('keydown', e => {
+      if (e.key !== 'Escape') return;
+      if (!lightbox.hidden) { lightbox.hidden = true; return; }
+      if (current) location.hash = '';
+    });
+
+    /* ---- Lightbox for artwork ---- */
+    const lightbox = document.getElementById('lightbox');
+    document.querySelectorAll('.gallery figure').forEach(f => {
+      f.addEventListener('click', () => {
+        const img = f.querySelector('img');
+        if (!img) return;
+        lightbox.querySelector('img').src = img.src;
+        lightbox.querySelector('img').alt = img.alt;
+        lightbox.querySelector('p').textContent = f.querySelector('figcaption')?.textContent || '';
+        lightbox.hidden = false;
+      });
+    });
+    lightbox.addEventListener('click', () => lightbox.hidden = true);
+
+    /* ---- Music player ---- */
+    const fmt = s => isFinite(s) ? Math.floor(s / 60) + ':' + String(Math.floor(s % 60)).padStart(2, '0') : '0:00';
+    document.querySelectorAll('.track').forEach(track => {
+      const audio = track.querySelector('audio');
+      const btn = track.querySelector('.play');
+      const fill = track.querySelector('.bar span');
+      const dur = track.querySelector('.dur');
+
+      audio.addEventListener('loadedmetadata', () => dur.textContent = fmt(audio.duration));
+      audio.addEventListener('timeupdate', () => {
+        fill.style.width = (audio.currentTime / audio.duration * 100 || 0) + '%';
+        dur.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+      });
+      audio.addEventListener('play', () => track.classList.add('playing'));
+      audio.addEventListener('pause', () => track.classList.remove('playing'));
+      audio.addEventListener('ended', () => { track.classList.remove('playing'); fill.style.width = '0%'; });
+      audio.addEventListener('error', () => { track.classList.add('missing'); dur.textContent = 'No file'; });
+
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.track audio').forEach(a => { if (a !== audio) a.pause(); });
+        audio.paused ? audio.play() : audio.pause();
+      });
+      track.querySelector('.bar').addEventListener('click', e => {
+        const r = e.currentTarget.getBoundingClientRect();
+        if (audio.duration) audio.currentTime = (e.clientX - r.left) / r.width * audio.duration;
+      });
+    });
+  </script>
+</body>
+</html>
