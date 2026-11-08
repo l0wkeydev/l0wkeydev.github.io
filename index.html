@@ -134,7 +134,7 @@
       <path d="M0 34 C 260 34, 330 96, 600 96 C 870 96, 940 34, 1200 34" fill="none" stroke="#3dbb4f" stroke-width="3" vector-effect="non-scaling-stroke"/>
     </svg>
 
-    <!-- Put your CV in the repository as cv.pdf -->
+    <!-- CV: cv.pdf in the repository root -->
     <a style="--d:7" class="intro round-btn left" href="cv.pdf" target="_blank" rel="noopener" aria-label="Download CV">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h8l5 5v15H6z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M14 2v5h5M9 12h7M9 16h7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
       <span>CV</span>
@@ -145,8 +145,8 @@
       <div class="date" id="date">Sun 08/11/26</div>
     </div>
 
-    <!-- Change this to your real email address -->
-    <a style="--d:7" class="intro round-btn right" href="mailto:you@example.com" aria-label="Email me">
+    
+    <a style="--d:7" class="intro round-btn right" href="mailto:thelowkeydeveloper@gmail.com" aria-label="Email me">
       <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3.5 6l8.5 7 8.5-7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
       <span>Mail</span>
     </a>
@@ -180,34 +180,58 @@
         </div>
       </article>
 
-      <div class="cards">
-        <!-- Copy this <article> for each game.
-             Replace the placeholder div with: <img class="thumb" src="images/game-name.png" alt="Game Name screenshot"> -->
-        <article class="card">
-          <div class="thumb ph"><span>Add screenshot</span></div>
+      <div class="cards" id="game-list">
+        <!-- ===== HOW TO ADD A GAME =====
+             Copy one whole <article class="card game"> … </article> block and paste it anywhere in this list.
+             Games sort themselves newest-first using data-date="YYYY-MM-DD", so order here doesn't matter.
+             data-slug is the game's web address: yoursite/#games/the-slug
+             The card shows the thumbnail + short text; everything inside <div class="details"> appears
+             on the game's own page when the card is clicked. -->
+
+        <article class="card game" data-date="2026-06-07" data-slug="the-rng-machine">
+          <img class="thumb pixel" src="images/games/the-rng-machine/thumb.png" alt="The RNG Machine title art">
           <div class="card-body">
-            <h2>Game Title</h2>
-            <p class="meta">Godot · Solo · Game jam</p>
-            <p>One line describing the game and what you did.</p>
-            <div class="actions"><a class="btn" href="https://itch.io" target="_blank" rel="noopener">Play on itch.io</a></div>
+            <h2>The RNG Machine</h2>
+            <p class="meta">Godot · Solo developer · June 2026</p>
+            <p>A roguelite dice-rolling card battler. Roll dice, drag them onto enemy cards and bank your Overkill to unlock lasting upgrades.</p>
+            <ul class="tags"><li>Roguelite</li><li>Systems design</li><li>GDScript</li></ul>
+            <div class="actions">
+              <button class="btn open-game" type="button">View game</button>
+              <a class="btn ghost" href="https://lowkeydeveloper.itch.io/the-rng-machine" target="_blank" rel="noopener">Play on itch.io</a>
+            </div>
           </div>
-        </article>
-        <article class="card">
-          <div class="thumb ph"><span>Add screenshot</span></div>
-          <div class="card-body">
-            <h2>Game Title</h2>
-            <p class="meta">Roblox · Designer & scripter</p>
-            <p>One line describing the game and what you did.</p>
-            <div class="actions"><a class="btn" href="https://www.roblox.com" target="_blank" rel="noopener">Play on Roblox</a></div>
-          </div>
-        </article>
-        <article class="card">
-          <div class="thumb ph"><span>Add screenshot</span></div>
-          <div class="card-body">
-            <h2>Game Title</h2>
-            <p class="meta">Godot · Team of 6</p>
-            <p>One line describing the game and what you did.</p>
-            <div class="actions"><a class="btn" href="https://itch.io" target="_blank" rel="noopener">Play on itch.io</a></div>
+
+          <div class="details" hidden>
+            <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/mgqFiUgFVLg" title="The RNG Machine trailer" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+
+            <dl class="facts">
+              <div><dt>Released</dt><dd>7 June 2026</dd></div>
+              <div><dt>Engine</dt><dd>Godot (GDScript)</dd></div>
+              <div><dt>Role</dt><dd>Solo developer</dd></div>
+              <div><dt>Music</dt><dd>PianoCats</dd></div>
+            </dl>
+
+            <p>The RNG Machine is a roguelite dice-rolling card battler. Each run, you roll dice and drag them onto enemy cards to deal damage. Beat an enemy by more than its health and you bank the difference as <strong>Overkill</strong>, a currency you spend to unlock new abilities and upgrades.</p>
+
+            <h3>Features</h3>
+            <ul class="features">
+              <li><strong>Dice-based combat:</strong> drag and assign dice to enemies, matching numbers or symbols for powerful effects like Fire, Ice, Lightning and Chain.</li>
+              <li><strong>Overkill economy:</strong> every point of excess damage is banked and kept between runs.</li>
+              <li><strong>Persistent skill tree:</strong> spend Overkill between runs to unlock lasting upgrades across six branches.</li>
+              <li><strong>Varied enemies:</strong> from pesky regular cards to unique bosses.</li>
+            </ul>
+
+            <h3>Screenshots</h3>
+            <div class="shots">
+              <img src="images/games/the-rng-machine/screenshot-1.webp" alt="Choosing a temporary dice upgrade" loading="lazy">
+              <img src="images/games/the-rng-machine/screenshot-2.webp" alt="Enemy cards lined up for battle" loading="lazy">
+              <img src="images/games/the-rng-machine/screenshot-3.webp" alt="The persistent Overkill skill tree" loading="lazy">
+              <img src="images/games/the-rng-machine/screenshot-4.webp" alt="A swarm of enemy cards over a swirling background" loading="lazy">
+            </div>
+
+            <div class="actions">
+              <a class="btn" href="https://lowkeydeveloper.itch.io/the-rng-machine" target="_blank" rel="noopener">Play on itch.io</a>
+            </div>
           </div>
         </article>
       </div>
@@ -344,7 +368,7 @@
           </ul>
 
           <div class="actions">
-            <a class="btn" href="mailto:you@example.com">Email me</a>
+            <a class="btn" href="mailto:thelowkeydeveloper@gmail.com">Email me</a>
             <a class="btn ghost" href="https://itch.io" target="_blank" rel="noopener">itch.io</a>
             <a class="btn ghost" href="https://github.com" target="_blank" rel="noopener">GitHub</a>
             <a class="btn ghost" href="cv.pdf" target="_blank" rel="noopener">CV</a>
@@ -411,6 +435,21 @@
     <div class="channel-dock"><a class="menu-btn" href="#">Menu</a></div>
   </section>
 
+  <!-- Game page (filled in from a card's .details when opened) -->
+  <div class="game-modal" id="game-modal" hidden>
+    <div class="game-panel" role="dialog" aria-modal="true" aria-labelledby="gm-title">
+      <header class="game-head">
+        <img class="game-head-thumb pixel" alt="">
+        <div>
+          <h2 id="gm-title"></h2>
+          <p class="meta" id="gm-meta"></p>
+        </div>
+        <a class="close-btn" href="#games" aria-label="Close">✕</a>
+      </header>
+      <div class="game-content" id="gm-content"></div>
+    </div>
+  </div>
+
   <!-- Artwork lightbox -->
   <div class="lightbox" id="lightbox" hidden>
     <img alt="">
@@ -433,6 +472,36 @@
     }
     tick(); setInterval(tick, 1000);
 
+    /* ---- Games: newest first + individual game pages ---- */
+    const gameList = document.getElementById('game-list');
+    [...gameList.querySelectorAll('.game')]
+      .sort((a, b) => (b.dataset.date || '').localeCompare(a.dataset.date || ''))
+      .forEach(card => gameList.appendChild(card));
+
+    const gameModal = document.getElementById('game-modal');
+    function showGame(slug) {
+      const card = slug && document.querySelector('.game[data-slug="' + slug + '"]');
+      const content = document.getElementById('gm-content');
+      if (!card) {
+        if (!gameModal.hidden) { gameModal.hidden = true; content.innerHTML = ''; } // also stops the trailer
+        return;
+      }
+      document.getElementById('gm-title').textContent = card.querySelector('h2').textContent;
+      document.getElementById('gm-meta').textContent = card.querySelector('.meta').textContent;
+      const thumb = gameModal.querySelector('.game-head-thumb');
+      thumb.src = card.querySelector('.thumb').getAttribute('src') || '';
+      content.innerHTML = card.querySelector('.details').innerHTML;
+      content.querySelectorAll('.shots img').forEach(img => img.addEventListener('click', () => openLightbox(img)));
+      gameModal.hidden = false;
+      gameModal.scrollTop = 0;
+    }
+    document.querySelectorAll('.game').forEach(card => {
+      const open = () => { location.hash = 'games/' + card.dataset.slug; };
+      card.querySelector('.open-game')?.addEventListener('click', open);
+      card.querySelector('.thumb')?.addEventListener('click', open);
+    });
+    gameModal.addEventListener('click', e => { if (e.target === gameModal) location.hash = 'games'; });
+
     /* ---- Channel routing (#games, #music, …) ---- */
     let current = null;
     let origin = null;
@@ -445,7 +514,8 @@
     });
 
     function route() {
-      const id = location.hash.slice(1);
+      const [id, sub] = location.hash.slice(1).split('/');
+      showGame(id === 'games' ? sub : null);
       const next = id ? document.getElementById(id) : null;
       const valid = next && next.classList.contains('channel');
 
@@ -475,6 +545,7 @@
     document.addEventListener('keydown', e => {
       if (e.key !== 'Escape') return;
       if (!lightbox.hidden) { lightbox.hidden = true; return; }
+      if (!gameModal.hidden) { location.hash = 'games'; return; }
       if (current) location.hash = '';
     });
 
