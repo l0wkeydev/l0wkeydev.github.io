@@ -330,30 +330,55 @@
         <h1>Prototypes</h1>
         <p>Quick experiments, mechanics tests and jam ideas</p>
       </header>
-      <div class="cards">
-        <!-- GIFs work great here: <img class="thumb" src="images/proto.gif" alt="..."> -->
-        <article class="card">
-          <div class="thumb ph"><span>Add GIF</span></div>
+      <div class="cards" id="proto-list">
+        <!-- Prototypes work exactly like games: copy an <article class="card game"> block.
+             Use data-date="YYYY-MM-DD", or leave it out for "in development" (those sort to the top).
+             Page address: yoursite/#prototypes/the-slug -->
+
+        <article class="card game" data-slug="kick-it-kook">
+          <img class="thumb pixel" src="images/games/kick-it-kook/thumb.png" alt="Kick It Kook gameplay">
           <div class="card-body">
-            <h2>Prototype Name</h2>
-            <p class="meta">Godot 4 · 2 days</p>
-            <p><strong>Question:</strong> what were you testing? <strong>Result:</strong> what did you learn?</p>
+            <h2>Kick It Kook</h2>
+            <p class="meta">Godot · Solo developer · In development</p>
+            <p>A fast-paced parkour platformer built around one idea: keep moving. Wall kick, slide and launch across a minimalist pixel city.</p>
+            <ul class="tags"><li>Platformer</li><li>Movement design</li><li>Game feel</li></ul>
+            <div class="actions">
+              <button class="btn open-game" type="button">View prototype</button>
+            </div>
           </div>
-        </article>
-        <article class="card">
-          <div class="thumb ph"><span>Add GIF</span></div>
-          <div class="card-body">
-            <h2>Prototype Name</h2>
-            <p class="meta">Godot 4 · 1 week</p>
-            <p><strong>Question:</strong> what were you testing? <strong>Result:</strong> what did you learn?</p>
-          </div>
-        </article>
-        <article class="card">
-          <div class="thumb ph"><span>Add GIF</span></div>
-          <div class="card-body">
-            <h2>Prototype Name</h2>
-            <p class="meta">Roblox · Weekend</p>
-            <p><strong>Question:</strong> what were you testing? <strong>Result:</strong> what did you learn?</p>
+
+          <div class="details" hidden>
+            <img class="hero pixel" src="images/games/kick-it-kook/screenshot-1.png" alt="The Kook wall kicking between buildings">
+
+            <dl class="facts">
+              <div><dt>Status</dt><dd>Prototype · Release TBD</dd></div>
+              <div><dt>Engine</dt><dd>Godot</dd></div>
+              <div><dt>Role</dt><dd>Solo developer</dd></div>
+              <div><dt>Genre</dt><dd>Parkour platformer</dd></div>
+            </dl>
+
+            <p><strong>Don't stop. Don't slow down. Don't look down.</strong></p>
+            <p>Kick It Kook is a fast-paced parkour platformer built around one idea: keep moving. You play as the Kook, tearing through a semi-open pixel city where every rooftop, wall and rail is a route waiting to be found.</p>
+            <p>Wall kick from building to building and build speed with every link in the chain. Hit a slope and you're sliding whether you like it or not, so time your jump to launch off it with everything you've built up. Cans, boxes and other junk in your way? Kick them aside, or come down hard enough to smash straight through.</p>
+            <p>Push your luck too far, though, and a big drop will leave the Kook in a heap on the pavement. The city rewards flow, not recklessness. Learn its lines, chain your moves and find out just how fast the Kook can really go.</p>
+
+            <h3>Features</h3>
+            <ul class="features">
+              <li><strong>Momentum-driven parkour:</strong> run, skid, jump, wall kick and slide. Every move feeds into the next.</li>
+              <li><strong>Kick everything:</strong> wall kicks for climbing, and kicks to clear cans, boxes and anything else that slows you down.</li>
+              <li><strong>Slopes that launch you:</strong> slide down, jump off and carry that speed through the air.</li>
+              <li><strong>Risk vs. reward:</strong> fall too far and you'll collapse, so find the routes that keep your flow alive.</li>
+              <li><strong>A semi-open world:</strong> explore a crisp, minimalist 8-bit city full of shortcuts, rooftops and hidden lines.</li>
+              <li><strong>Reactive feel:</strong> snappy controls, screen shake and effects make every landing and kick hit hard.</li>
+            </ul>
+
+            <h3>Screenshots</h3>
+            <div class="shots">
+              <img class="pixel" src="images/games/kick-it-kook/screenshot-1.png" alt="Wall kicking off a building edge" loading="lazy">
+              <img class="pixel" src="images/games/kick-it-kook/screenshot-2.png" alt="The Kook at the top of a long slope" loading="lazy">
+              <img class="pixel" src="images/games/kick-it-kook/screenshot-3.png" alt="Smashing through junk in a burst of particles" loading="lazy">
+              <img class="pixel" src="images/games/kick-it-kook/screenshot-4.png" alt="End of level results screen with time and grade" loading="lazy">
+            </div>
           </div>
         </article>
       </div>
@@ -528,7 +553,7 @@
           <h2 id="gm-title"></h2>
           <p class="meta" id="gm-meta"></p>
         </div>
-        <a class="close-btn" href="#games" aria-label="Close">✕</a>
+        <a class="close-btn" href="#games" id="gm-close" aria-label="Close">✕</a>
       </header>
       <div class="game-content" id="gm-content"></div>
     </div>
@@ -557,10 +582,14 @@
     tick(); setInterval(tick, 1000);
 
     /* ---- Games: newest first + individual game pages ---- */
-    const gameList = document.getElementById('game-list');
-    [...gameList.querySelectorAll(':scope > .game')]
-      .sort((a, b) => (b.dataset.date || '').localeCompare(a.dataset.date || ''))
-      .forEach(card => gameList.appendChild(card));
+    // Newest first; cards without a date (in development) go to the top
+    ['game-list', 'proto-list'].forEach(listId => {
+      const list = document.getElementById(listId);
+      [...list.querySelectorAll(':scope > .game')]
+        .sort((a, b) => (b.dataset.date || '9999').localeCompare(a.dataset.date || '9999'))
+        .forEach(card => list.appendChild(card));
+    });
+    const sectionOf = card => card.closest('.channel').id;   // "games" or "prototypes"
 
     const gameModal = document.getElementById('game-modal');
     function showGame(slug) {
@@ -576,15 +605,17 @@
       thumb.src = card.querySelector('.thumb').getAttribute('src') || '';
       content.innerHTML = card.querySelector('.details').innerHTML;
       content.querySelectorAll('.shots img').forEach(img => img.addEventListener('click', () => openLightbox(img)));
+      gameModal.dataset.back = sectionOf(card);
+      document.getElementById('gm-close').href = '#' + sectionOf(card);
       gameModal.hidden = false;
       gameModal.scrollTop = 0;
     }
     document.querySelectorAll('.game').forEach(card => {
-      const open = () => { location.hash = 'games/' + card.dataset.slug; };
+      const open = () => { location.hash = sectionOf(card) + '/' + card.dataset.slug; };
       card.querySelector('.open-game')?.addEventListener('click', open);
       card.querySelector('.thumb')?.addEventListener('click', open);
     });
-    gameModal.addEventListener('click', e => { if (e.target === gameModal) location.hash = 'games'; });
+    gameModal.addEventListener('click', e => { if (e.target === gameModal) location.hash = gameModal.dataset.back; });
 
     /* ---- Channel routing (#games, #music, …) ---- */
     let current = null;
@@ -599,7 +630,7 @@
 
     function route() {
       const [id, sub] = location.hash.slice(1).split('/');
-      showGame(id === 'games' ? sub : null);
+      showGame(id === 'games' || id === 'prototypes' ? sub : null);
       const next = id ? document.getElementById(id) : null;
       const valid = next && next.classList.contains('channel');
 
@@ -629,7 +660,7 @@
     document.addEventListener('keydown', e => {
       if (e.key !== 'Escape') return;
       if (!lightbox.hidden) { lightbox.hidden = true; return; }
-      if (!gameModal.hidden) { location.hash = 'games'; return; }
+      if (!gameModal.hidden) { location.hash = gameModal.dataset.back; return; }
       if (current) location.hash = '';
     });
 
