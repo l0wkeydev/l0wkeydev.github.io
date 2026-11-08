@@ -17,20 +17,21 @@
     <span class="bubble b1"></span><span class="bubble b2"></span><span class="bubble b3"></span>
     <span class="bubble b4"></span><span class="bubble b5"></span><span class="bubble b6"></span>
     <span class="bubble b7"></span><span class="bubble b8"></span>
+    <!-- Drifters: travel in from off-screen and out the other side -->
+    <span class="bubble rise r1"></span><span class="bubble rise r2"></span><span class="bubble rise r3"></span>
+    <span class="bubble rise r4"></span><span class="bubble rise r5"></span>
+    <span class="bubble cross c1"></span><span class="bubble cross c2"></span><span class="bubble cross c3"></span>
   </div>
 
   <!-- ============ MENU ============ -->
   <header class="topbar">
     <div class="nameplate">
-      <span class="leaf" aria-hidden="true">
-        <svg viewBox="0 0 24 24"><path d="M5 19c0-8 5-13 15-14-1 10-6 15-14 15" fill="currentColor"/><path d="M5 19c3-4 6-7 10-9" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg>
-      </span>
+      <img class="profile-pic" src="images/avatar.png" alt="Asriel's avatar">
       <div>
         <strong>Asriel</strong>
         <small>Game Designer · Developer · Artist</small>
       </div>
     </div>
-    <p class="hint">Select a channel</p>
   </header>
 
   <main class="menu" id="menu">
@@ -38,11 +39,11 @@
 
       <a class="tile t-games" href="#games">
         <div class="tile-art">
-          <svg class="icon" viewBox="0 0 64 40" aria-hidden="true">
+          <svg class="icon pad" viewBox="0 0 64 40" aria-hidden="true">
             <path d="M14 4h36c7 0 12 6 13 14l1 10c1 7-6 11-11 6l-6-6H17l-6 6C6 39-1 35 0 28l1-10C2 10 7 4 14 4z" fill="#fff"/>
-            <path d="M15 14v10M10 19h10" stroke="#2aa046" stroke-width="3.4" stroke-linecap="round"/>
-            <circle cx="45" cy="15" r="2.8" fill="#2aa046"/><circle cx="51" cy="20" r="2.8" fill="#2aa046"/>
-            <circle cx="39" cy="20" r="2.8" fill="#2aa046"/><circle cx="45" cy="25" r="2.8" fill="#2aa046"/>
+            <path class="dpad" d="M15 14v10M10 19h10" stroke="#2aa046" stroke-width="3.4" stroke-linecap="round"/>
+            <circle class="btn-dot d1" cx="45" cy="15" r="2.8" fill="#2aa046"/><circle class="btn-dot d2" cx="51" cy="20" r="2.8" fill="#2aa046"/>
+            <circle class="btn-dot d3" cx="39" cy="20" r="2.8" fill="#2aa046"/><circle class="btn-dot d4" cx="45" cy="25" r="2.8" fill="#2aa046"/>
           </svg>
         </div>
         <span class="tile-label">Games</span>
@@ -64,10 +65,15 @@
 
       <a class="tile t-art" href="#artwork">
         <div class="tile-art">
-          <svg class="icon" viewBox="0 0 64 56" aria-hidden="true">
+          <svg class="icon palette" viewBox="0 0 64 56" aria-hidden="true">
             <path d="M32 4C15 4 3 15 3 28c0 11 9 18 17 16 5-1 4-7 9-8 6-1 8 6 14 6 11 0 18-8 18-16C61 13 48 4 32 4z" fill="#fff" stroke="#cfe3d2" stroke-width="1.5"/>
-            <circle cx="18" cy="24" r="5" fill="#ff8a7a"/><circle cx="29" cy="14" r="5" fill="#ffd15c"/>
-            <circle cx="43" cy="15" r="5" fill="#3dbb4f"/><circle cx="51" cy="27" r="5" fill="#5cb8ff"/>
+            <circle class="paint p1" cx="18" cy="24" r="5" fill="#ff8a7a"/><circle class="paint p2" cx="29" cy="14" r="5" fill="#ffd15c"/>
+            <circle class="paint p3" cx="43" cy="15" r="5" fill="#3dbb4f"/><circle class="paint p4" cx="51" cy="27" r="5" fill="#5cb8ff"/>
+          </svg>
+          <svg class="icon brush" viewBox="0 0 20 60" aria-hidden="true">
+            <rect x="7" y="0" width="6" height="34" rx="3" fill="#b07a4a"/>
+            <rect x="6" y="32" width="8" height="8" fill="#c9ced3"/>
+            <path d="M6 40h8c0 8-2 14-4 18-2-4-4-10-4-18z" fill="#3dbb4f"/>
           </svg>
         </div>
         <span class="tile-label">Artwork</span>
@@ -83,19 +89,20 @@
 
       <a class="tile t-me" href="#me">
         <div class="tile-art">
-          <svg class="icon" viewBox="0 0 48 56" aria-hidden="true">
-            <circle cx="24" cy="15" r="11" fill="#2aa046"/>
-            <path d="M3 54c0-14 9-22 21-22s21 8 21 22z" fill="#2aa046"/>
-            <circle cx="20" cy="14" r="1.8" fill="#fff"/><circle cx="28" cy="14" r="1.8" fill="#fff"/>
-            <path d="M19.5 19c3 2.5 6 2.5 9 0" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+          <svg class="icon person" viewBox="0 0 64 56" aria-hidden="true">
+            <path d="M11 54c0-14 9-22 21-22s21 8 21 22z" fill="#2aa046"/>
+            <g class="wave-arm"><path d="M48 40c4-4 6-9 7-15" stroke="#2aa046" stroke-width="6" stroke-linecap="round" fill="none"/><circle cx="55.5" cy="23" r="4" fill="#2aa046"/></g>
+            <g class="head">
+              <circle cx="32" cy="15" r="11" fill="#2aa046"/>
+              <g class="eyes"><circle cx="28" cy="14" r="1.8" fill="#fff"/><circle cx="36" cy="14" r="1.8" fill="#fff"/></g>
+              <path d="M27.5 19c3 2.5 6 2.5 9 0" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+            </g>
           </svg>
         </div>
         <span class="tile-label">Me</span>
       </a>
 
-      <!-- Empty channel slots (purely decorative) -->
-      <div class="tile empty" aria-hidden="true"></div>
-      <div class="tile empty" aria-hidden="true"></div>
+      <!-- Empty channel slot (purely decorative) — swap for a new channel later -->
       <div class="tile empty" aria-hidden="true"></div>
     </nav>
   </main>
@@ -120,7 +127,7 @@
 
     <div class="clock" aria-live="off">
       <div class="time"><span id="hm">12:00</span><span id="ampm">PM</span></div>
-      <div class="date" id="date">Sun 8/11</div>
+      <div class="date" id="date">Sun 08/11/26</div>
     </div>
 
     <!-- Change this to your real email address -->
@@ -349,7 +356,9 @@
       h = h % 12 || 12;
       document.getElementById('hm').textContent = h + ':' + String(d.getMinutes()).padStart(2, '0');
       document.getElementById('ampm').textContent = ampm;
-      document.getElementById('date').textContent = days[d.getDay()] + ' ' + d.getDate() + '/' + (d.getMonth() + 1);
+      const p2 = n => String(n).padStart(2, '0');
+      document.getElementById('date').textContent =
+        days[d.getDay()] + ' ' + p2(d.getDate()) + '/' + p2(d.getMonth() + 1) + '/' + p2(d.getFullYear() % 100);
     }
     tick(); setInterval(tick, 1000);
 
