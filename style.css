@@ -783,3 +783,4 @@ a.play { display: block; text-decoration: none; }
 /* Thumbnails that shouldn't be cropped (e.g. title art with text) */
 .thumb.fit { object-fit: contain; background: #000; }
 .game-content .hero.small { max-width: 420px; margin-left: auto; margin-right: auto; }
+.about-text p a { color: var(--green-deep); font-weight: 700; }
