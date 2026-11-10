@@ -302,7 +302,7 @@
         </article>
       </div>
     </div>
-    <div class="channel-dock"><a class="menu-btn" href="#">Menu</a></div>
+    <div class="channel-dock"><a class="menu-btn" href="#">Menu</a><button class="menu-btn bar-btn" type="button" aria-pressed="false"><span class="bar-label">Hide bar</span><span class="bar-chev" aria-hidden="true"></span></button></div>
   </section>
 
   <!-- PROTOTYPES -->
@@ -737,7 +737,7 @@
         </article>
       </div>
     </div>
-    <div class="channel-dock"><a class="menu-btn" href="#">Menu</a></div>
+    <div class="channel-dock"><a class="menu-btn" href="#">Menu</a><button class="menu-btn bar-btn" type="button" aria-pressed="false"><span class="bar-label">Hide bar</span><span class="bar-chev" aria-hidden="true"></span></button></div>
   </section>
 
   <!-- ARTWORK -->
@@ -796,7 +796,7 @@
       </div>
       <p class="empty-state" hidden>Artwork coming soon. Check back later!</p>
     </div>
-    <div class="channel-dock"><a class="menu-btn" href="#">Menu</a></div>
+    <div class="channel-dock"><a class="menu-btn" href="#">Menu</a><button class="menu-btn bar-btn" type="button" aria-pressed="false"><span class="bar-label">Hide bar</span><span class="bar-chev" aria-hidden="true"></span></button></div>
   </section>
 
   <!-- MUSIC -->
@@ -1182,7 +1182,7 @@
              followed by <div class="tracks"> containing track blocks (MP3: music/singles/, or link tracks like above). -->
       </div>
     </div>
-    <div class="channel-dock"><a class="menu-btn" href="#">Menu</a></div>
+    <div class="channel-dock"><a class="menu-btn" href="#">Menu</a><button class="menu-btn bar-btn" type="button" aria-pressed="false"><span class="bar-label">Hide bar</span><span class="bar-chev" aria-hidden="true"></span></button></div>
   </section>
 
   <!-- ME -->
@@ -1225,7 +1225,7 @@
         </div>
       </div>
     </div>
-    <div class="channel-dock"><a class="menu-btn" href="#">Menu</a></div>
+    <div class="channel-dock"><a class="menu-btn" href="#">Menu</a><button class="menu-btn bar-btn" type="button" aria-pressed="false"><span class="bar-label">Hide bar</span><span class="bar-chev" aria-hidden="true"></span></button></div>
   </section>
 
   <!-- NEWS / DEV DIARY -->
@@ -1272,7 +1272,7 @@
       </div>
       <p class="empty-state" hidden>No posts yet. The dev diary is coming soon!</p>
     </div>
-    <div class="channel-dock"><a class="menu-btn" href="#">Menu</a></div>
+    <div class="channel-dock"><a class="menu-btn" href="#">Menu</a><button class="menu-btn bar-btn" type="button" aria-pressed="false"><span class="bar-label">Hide bar</span><span class="bar-chev" aria-hidden="true"></span></button></div>
   </section>
 
   <!-- Game page (filled in from a card's .details when opened) -->
@@ -1292,8 +1292,12 @@
 
   <!-- Artwork lightbox -->
   <div class="lightbox" id="lightbox" hidden>
+    <div class="lightbox-loading" aria-label="Loading image">
+      <div class="spinner" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><div class="spinner-core"></div></div>
+      <p>Loading image…</p>
+    </div>
     <img alt="">
-    <p></p>
+    <p class="lightbox-caption"></p>
   </div>
 
   <script>
@@ -1382,6 +1386,17 @@
       setTimeout(finish, 20000);                     // never get stuck on a slow connection
     }
 
+    /* ---- Lower / raise the bottom bar inside channels ---- */
+    function setBarLowered(on) {
+      document.body.classList.toggle('bar-lowered', on);
+      document.querySelectorAll('.bar-btn').forEach(b => {
+        b.setAttribute('aria-pressed', on);
+        b.querySelector('.bar-label').textContent = on ? 'Show bar' : 'Hide bar';
+      });
+    }
+    document.querySelectorAll('.bar-btn').forEach(b =>
+      b.addEventListener('click', () => setBarLowered(!document.body.classList.contains('bar-lowered'))));
+
     /* ---- Channel routing (#games, #music, …) ---- */
     let current = null;
     let origin = null;
@@ -1419,6 +1434,7 @@
         document.title = 'Asriel Cooper — Game Designer Portfolio';
       }
       document.body.classList.toggle('in-channel', !!valid);
+      if (!valid) setBarLowered(false);                 // the bar is always up on the home screen
     }
     window.addEventListener('hashchange', route);
     route();
@@ -1433,11 +1449,15 @@
     /* ---- Lightbox for artwork ---- */
     const lightbox = document.getElementById('lightbox');
     function openLightbox(img, caption) {
-      lightbox.querySelector('img').src = img.src;
-      lightbox.querySelector('img').alt = img.alt;
-      lightbox.querySelector('img').classList.toggle('pixel', img.classList.contains('pixel'));
-      lightbox.querySelector('p').textContent = caption || img.alt || '';
+      const big = lightbox.querySelector('img');
+      lightbox.classList.add('loading');                 // show the spinner until the image is ready
+      big.onload = big.onerror = () => lightbox.classList.remove('loading');
+      big.src = img.currentSrc || img.src;
+      big.alt = img.alt;
+      big.classList.toggle('pixel', img.classList.contains('pixel'));
+      lightbox.querySelector('.lightbox-caption').textContent = caption || img.alt || '';
       lightbox.hidden = false;
+      if (big.complete && big.naturalWidth) lightbox.classList.remove('loading');
     }
     document.querySelectorAll('.gallery figure').forEach(f => {
       f.addEventListener('click', () => {
