@@ -281,7 +281,7 @@ a { color: inherit; }
 .round-btn.left  { left: 6vw; }
 .round-btn.right { right: 6vw; }
 
-body.in-channel .dock, body.in-channel .menu, body.in-channel .topbar { visibility: hidden; }
+body.in-channel .menu, body.in-channel .home-title { visibility: hidden; }
 
 /* ---------- Channel pages ---------- */
 .channel {
@@ -784,3 +784,68 @@ a.play { display: block; text-decoration: none; }
 .thumb.fit { object-fit: contain; background: #000; }
 .game-content .hero.small { max-width: 420px; margin-left: auto; margin-right: auto; }
 .about-text p a { color: var(--green-deep); font-weight: 700; }
+
+
+.menu { padding-top: 40px; }
+
+/* ---------- Bottom bar stays on every screen ---------- */
+.dock { z-index: 30; }                          /* above channels (20), below game pages (40) */
+.channel-inner { padding-bottom: calc(var(--dock-h) + 110px); }
+.channel-dock {
+  bottom: calc(var(--dock-h) - 30px); height: 90px; z-index: 31;
+  background: none; pointer-events: none;
+}
+.channel-dock .menu-btn { pointer-events: auto; }
+/* Fade content out just above the bar so it doesn't clash with the wave */
+.channel::after {
+  content: ""; position: fixed; left: 0; right: 0; bottom: 0; height: calc(var(--dock-h) + 40px);
+  background: linear-gradient(rgba(234,239,236,0), rgba(234,239,236,.92) 45%);
+  pointer-events: none; z-index: 1;
+}
+.game-modal { padding-bottom: calc(var(--dock-h) + 20px); }
+
+
+/* ---------- Artwork loading screen ---------- */
+.gallery.waiting { visibility: hidden; height: 0; overflow: hidden; }
+.art-loader {
+  display: grid; justify-items: center; gap: 16px;
+  max-width: 420px; margin: 30px auto 0; padding: 36px 30px 30px;
+  background: linear-gradient(#ffffff, #f1faf2);
+  border: 3px solid #fff; outline: 1px solid var(--tile-border); border-radius: 28px;
+  box-shadow: 0 0 0 6px rgba(61,187,79,.10), 0 0 26px rgba(61,187,79,.22);
+  transition: opacity .4s ease, scale .4s ease;
+}
+.art-loader[hidden] { display: none; }
+.art-loader.fade { opacity: 0; scale: .95; }
+
+/* Wii-style ring of glossy bubbles spinning around a pulsing core */
+.spinner { position: relative; width: 96px; height: 96px; animation: spinRing 2.4s linear infinite; }
+.spinner span {
+  position: absolute; left: 50%; top: 50%; width: 18px; height: 18px; margin: -9px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #ffffff 0 18%, #8fe39a 35%, var(--green) 65%, var(--green-deep));
+  box-shadow: 0 2px 4px rgba(31,143,58,.3);
+  transform: rotate(calc(var(--i) * 45deg)) translateY(-38px);
+  animation: bubblePulse 1.2s ease-in-out infinite;
+  animation-delay: calc(var(--i) * -0.15s);
+}
+.spinner span:nth-child(1) { --i: 0; } .spinner span:nth-child(2) { --i: 1; }
+.spinner span:nth-child(3) { --i: 2; } .spinner span:nth-child(4) { --i: 3; }
+.spinner span:nth-child(5) { --i: 4; } .spinner span:nth-child(6) { --i: 5; }
+.spinner span:nth-child(7) { --i: 6; } .spinner span:nth-child(8) { --i: 7; }
+.spinner-core {
+  position: absolute; inset: 30px; border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #ffffff 0 20%, #c9f1ce 45%, #a6e3ad);
+  border: 2px solid #fff; box-shadow: 0 0 0 1px var(--green-light), 0 0 14px rgba(61,187,79,.35);
+  animation: corePulse 1.2s ease-in-out infinite, spinRing 2.4s linear infinite reverse;
+}
+@keyframes spinRing { to { rotate: 360deg; } }
+@keyframes bubblePulse { 0%, 100% { scale: .55; opacity: .45; } 50% { scale: 1; opacity: 1; } }
+@keyframes corePulse { 0%, 100% { scale: .9; } 50% { scale: 1.05; } }
+
+.loader-text { margin: 4px 0 0; font-weight: 700; color: var(--green-deep); }
+.loader-bar { width: 100%; height: 10px; border-radius: 10px; background: #e2ebe5; overflow: hidden; box-shadow: inset 0 1px 2px rgba(0,0,0,.08); }
+.loader-bar span { display: block; height: 100%; width: 0; border-radius: inherit;
+  background: linear-gradient(#8fe39a, var(--green) 50%, var(--green-deep)); transition: width .25s ease; }
+#art-skip { margin-top: 4px; }
+@media (prefers-reduced-motion: reduce) { .spinner, .spinner span, .spinner-core { animation: none !important; } }

@@ -747,6 +747,18 @@
         <h1>Artwork</h1>
         <p>Pixel art, concepts and UI design. Click to enlarge.</p>
       </header>
+      <!-- Loading screen: shows the first time Artwork opens, until every image has loaded -->
+      <div class="art-loader" id="art-loader" hidden>
+        <div class="spinner" aria-hidden="true">
+          <span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span>
+          <div class="spinner-core"></div>
+        </div>
+        <p class="loader-text">Loading artwork… <strong id="art-progress">0%</strong></p>
+        <div class="loader-bar"><span id="art-bar"></span></div>
+        <button class="btn ghost" type="button" id="art-skip">Skip</button>
+      </div>
+
       <!-- ===== HOW TO ADD ARTWORK =====
            Put images in images/art/ and add one <figure> per piece inside the gallery below:
              <figure><img src="images/art/my-piece.png" alt="Short description"><figcaption>Title</figcaption></figure>
@@ -1336,6 +1348,40 @@
     });
     gameModal.addEventListener('click', e => { if (e.target === gameModal) location.hash = gameModal.dataset.back; });
 
+    /* ---- Artwork loading screen ---- */
+    let artLoaded = false;
+    function startArtLoader() {
+      if (artLoaded) return;
+      artLoaded = true;
+      const loader = document.getElementById('art-loader');
+      const gallery = document.querySelector('.gallery');
+      const imgs = [...gallery.querySelectorAll('img')];
+      if (!imgs.length) return;
+      let done = 0, finished = false;
+      const finish = () => {
+        if (finished) return; finished = true;
+        loader.classList.add('fade');
+        gallery.classList.remove('waiting');
+        setTimeout(() => { loader.hidden = true; }, 400);
+      };
+      const tick = () => {
+        done++;
+        const pct = Math.round(done / imgs.length * 100);
+        document.getElementById('art-progress').textContent = pct + '%';
+        document.getElementById('art-bar').style.width = pct + '%';
+        if (done >= imgs.length) setTimeout(finish, 300);
+      };
+      loader.hidden = false;
+      gallery.classList.add('waiting');
+      imgs.forEach(img => {
+        img.loading = 'eager';                       // load everything now, not on scroll
+        if (img.complete) tick();
+        else { img.addEventListener('load', tick, { once: true }); img.addEventListener('error', tick, { once: true }); }
+      });
+      document.getElementById('art-skip').addEventListener('click', finish);
+      setTimeout(finish, 20000);                     // never get stuck on a slow connection
+    }
+
     /* ---- Channel routing (#games, #music, …) ---- */
     let current = null;
     let origin = null;
@@ -1367,6 +1413,7 @@
         next.scrollTop = 0;
         requestAnimationFrame(() => next.classList.add('open'));
         current = next;
+        if (next.id === 'artwork') startArtLoader();
         document.title = next.getAttribute('aria-label') + ' — Asriel Cooper';
       } else if (!valid) {
         document.title = 'Asriel Cooper — Game Designer Portfolio';
